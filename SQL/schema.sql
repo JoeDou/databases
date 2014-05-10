@@ -2,12 +2,25 @@ CREATE DATABASE chat;
 
 USE chat;
 
-CREATE TABLE messages (
- /* Describe your table here.*/
+CREATE  TABLE IF NOT EXISTS `chat`.`messages` (
+
+  `id` INT NOT NULL AUTO_INCREMENT ,
+
+  `username` VARCHAR(45) NOT NULL ,
+
+  `contents` TEXT NOT NULL ,
+
+  `created_at` DATETIME NULL ,
+
+  `room` VARCHAR(45) NOT NULL ,
+
+  PRIMARY KEY (`id`)
+
 );
 
-/* You can also create more tables, if you need them... */
+-- ---
+-- Foreign Keys
+-- ---
 
-/*  Execute this file from the command line by typing:
- *    mysql < schema.sql
- *  to create the database and the tables.*/
+CREATE SCHEMA IF NOT EXISTS `chat` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+
